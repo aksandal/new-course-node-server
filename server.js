@@ -1,6 +1,8 @@
 const express = require('express');
 const hbs = require('hbs');
 
+
+const port=process.env.PORT||3000;
 const fs=require('fs');
 var app = express();
 hbs.registerPartials(__dirname + '/views/partials');
@@ -18,7 +20,7 @@ app.set('template engine', 'hbs');
 
 
 app.use((req,res,next)=>{
-    res.render('maintainance.hbs');
+    res.render('maintainance.hbs'); 
 })
 app.use(express.static(__dirname + '/public'));
 app.use((req,res,next)=>{
@@ -50,6 +52,6 @@ app.get('/about', (req, res) => {
 
 
 
-app.listen(3000, 'localhost', () => {
-    console.log('listening on 3000');
+app.listen(port, 'localhost', () => {
+    console.log(`listening on ${port}`);
 });
