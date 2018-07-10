@@ -16,7 +16,7 @@ hbs.registerHelper('screamIt',(text)=>{
     return text.toUpperCase();
 })
 
-app.set('template engine', 'hbs');
+//app.set('template engine', 'hbs');
 
 
 /* app.use((req,res,next)=>{
@@ -37,10 +37,12 @@ app.use((req,res,next)=>{
 app.get('/', (req, res) => {
     res.render('home.hbs',{
         welcomeMessage:'What the hell welcomes you',
-        pageTitle:'About Page',
+        pageTitle:'Brand New Companys',
         getCurrentYear:'2016'
     });
 });
+
+
 
 
 app.get('/about', (req, res) => {
@@ -49,6 +51,15 @@ app.get('/about', (req, res) => {
         currentYear:new Date().getFullYear()
     })
 });
+
+
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs',{
+        pageTitle:'Projects',
+        getCurrentYear:'2016'
+    });
+});
+
 
 
 
